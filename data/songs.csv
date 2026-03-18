@@ -9,3 +9,11 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Solstice Letters,Harbor & Pine,folk,reflective,0.34,68,0.42,0.48,0.81
+12,Orbiting Lights,Glass Meridian,electronic,cosmic,0.77,122,0.58,0.74,0.12
+13,City of Silence,Noah Calder,classical,calm,0.22,60,0.35,0.20,0.95
+14,Neon Alleyway,Kai Monroe,hip-hop,gritty,0.63,92,0.46,0.85,0.18
+15,Velvet Hour,Mira Solace,soul,romantic,0.49,84,0.73,0.62,0.66
+16,Desert Bloom,Aria Calderon,world,serene,0.41,96,0.64,0.57,0.72
+17,Afterimage Lane,June Wilder,alternative,sad,0.38,88,0.29,0.51,0.54
+18,Signal to the Shore,The Coastline Theory,indie rock,hopeful,0.68,116,0.70,0.65,0.30

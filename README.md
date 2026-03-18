@@ -31,6 +31,66 @@ You can include a simple diagram or bullet list if helpful.
 
 Real-world recommendations combine listening behavior, similarity between users and items, and ranking rules to decide what appears next, often balancing accuracy with discovery. My version prioritizes transparent, content based matching: each Song uses genre, mood, energy, tempo, valence, danceability, and acousticness, and the UserProfile stores a preferred genre and mood plus target values for those numeric features. The Recommender computes a score for each song by rewarding closeness to the user's targets and giving extra weight to genre and mood matches, then it recommends the top scoring songs as the final list.
 
+Features used:
+
+- Song: genre, mood, energy, tempo, valence, danceability, acousticness.
+- UserProfile: favorite genres, favorite moods, avoid genres, target values, tolerances, and weights.
+
+Algorithm Recipe (scoring sheet):
+
+Total Score =
+(Genre Score _ 0.30) +
+(Mood Score _ 0.20) +
+(Energy Similarity _ 0.15) +
+(Tempo Similarity _ 0.10) +
+(Valence Similarity _ 0.10) +
+(Danceability Similarity _ 0.10) +
+(Acousticness Similarity \* 0.05)
+
+- (Avoid Penalty)
+
+* (Diversity Bonus)
+* (Novelty Bonus)
+
+Genre Score:
+
+- +2.0 if genre in favorite genres
+- -3.0 if genre in avoid genres
+- 0 otherwise
+
+Mood Score:
+
+- +1.0 if mood in favorite moods
+- 0 otherwise
+
+Numeric Similarity (each feature):
+
+- 1.0 if at target
+- 0.5 if moderately close (within tolerance)
+- 0.0 if outside tolerance
+
+Avoid Penalty:
+
+- 0.40 if genre is in avoid genres
+- 0.0 otherwise
+
+Diversity Bonus (applied during ranking):
+
+- +0.05 if the song adds a new genre or mood to the top list
+
+Novelty Bonus:
+
+- +0.10 if genre is not in favorites and not in avoid list
+
+Ranking rule:
+
+- Score every song, sort by Total Score, then return Top K.
+
+Potential biases and limitations:
+
+- This system may over prioritize genre and miss songs that match mood and numeric features but are in non favorite genres.
+- Hard tolerances can exclude near misses and reduce diversity if the profile is too narrow.
+
 ---
 
 ## Getting Started
