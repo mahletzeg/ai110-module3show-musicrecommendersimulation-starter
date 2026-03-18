@@ -11,7 +11,7 @@ Your goal is to:
 - Evaluate what your system gets right and wrong
 - Reflect on how this mirrors real world AI recommenders
 
-Replace this paragraph with your own summary of what your version does.
+My version loads a small song catalog from CSV, builds a user taste profile, and scores each song with a simple weighted formula. It returns the top K recommendations and explains why they were chosen. The focus is on transparency: you can see how genre, mood, and numeric features influence each result.
 
 ---
 
@@ -39,9 +39,9 @@ Features used:
 Algorithm Recipe (scoring sheet):
 
 Total Score =
-(Genre Score _ 0.30) +
+(Genre Score _ 0.15) +
 (Mood Score _ 0.20) +
-(Energy Similarity _ 0.15) +
+(Energy Similarity _ 0.30) +
 (Tempo Similarity _ 0.10) +
 (Valence Similarity _ 0.10) +
 (Danceability Similarity _ 0.10) +
@@ -132,23 +132,15 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
-
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
+- I doubled the energy weight and cut the genre weight in half. Songs with closer energy matches rose in the ranking, even if the genre was not a perfect match.
+- I tried a Happy Pop profile and noticed “Gym Hero” appeared often because high energy boosted it.
+- I tested Chill Lofi and saw the model prefer low energy, slower tempo tracks as expected.
 
 ---
 
 ## Limitations and Risks
 
-Summarize some limitations of your recommender.
-
-Examples:
-
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
+This system uses a tiny catalog, so it repeats the same songs across profiles. It does not understand lyrics, language, or artist loyalty. It can over favor one genre or a strict energy target and miss near matches.
 
 You will go deeper on this in your model card.
 
@@ -156,14 +148,11 @@ You will go deeper on this in your model card.
 
 ## Reflection
 
-Read and complete `model_card.md`:
+Read and complete [**Model Card**](model_card.md).
 
-[**Model Card**](model_card.md)
+My biggest learning moment was seeing how small weight changes can flip the top results, even with the same dataset. AI tools helped me draft scoring logic and explanations quickly, but I had to double check key names and weights to make sure the math matched the code. I was surprised that a simple weighted score can still feel like real recommendations when the features line up.
 
-Write 1 to 2 paragraphs here about what you learned:
-
-- about how recommenders turn data into predictions
-- about where bias or unfairness could show up in systems like this
+If I extended this project, I would add artist preferences, stronger diversity controls, and a larger dataset. I would also test more profiles and compare how rankings change when I adjust tolerances and penalties.
 
 ---
 
