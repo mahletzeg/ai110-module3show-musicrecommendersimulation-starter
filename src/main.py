@@ -9,24 +9,37 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
-from recommender import load_songs, recommend_songs
+try:
+    from .recommender import load_songs, recommend_songs
+except ImportError:
+    from recommender import load_songs, recommend_songs
 
 
 def main() -> None:
-    songs = load_songs("data/songs.csv") 
+    songs = load_songs("data/songs.csv")
+    print(f"Loaded songs: {len(songs)}")
 
-    # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    # Starter example profile (matches scoring keys)
+    user_prefs = {
+        "favorite_genres": ["pop"],
+        "favorite_moods": ["happy"],
+        "targets": {"energy": 0.8},
+        "tolerances": {"energy": 0.2},
+    }
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
 
     print("\nTop recommendations:\n")
-    for rec in recommendations:
+    for index, rec in enumerate(recommendations, start=1):
         # You decide the structure of each returned item.
         # A common pattern is: (song, score, explanation)
         song, score, explanation = rec
-        print(f"{song['title']} - Score: {score:.2f}")
-        print(f"Because: {explanation}")
+        if isinstance(explanation, list):
+            reasons = "; ".join(explanation)
+        else:
+            reasons = str(explanation)
+        print(f"{index}. {song['title']} - Score: {score:.2f}")
+        print(f"   Reasons: {reasons}")
         print()
 
 

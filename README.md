@@ -275,3 +275,7 @@ A few sentences about what you learned:
 - How did building this change how you think about real music recommenders
 - Where do you think human judgment still matters, even if the model seems "smart"
 ```
+
+## Terminal Output
+
+![alt text](C414B0B5-E6EA-4360-BD11-6D42ECBB7621_1_201_a.jpeg)
