@@ -279,3 +279,9 @@ A few sentences about what you learned:
 ## Terminal Output
 
 ![alt text](C414B0B5-E6EA-4360-BD11-6D42ECBB7621_1_201_a.jpeg)
+
+![alt text](2C3568A8-F9C1-474E-B655-13FE2F594081_1_201_a.jpeg)
+
+![alt text](002E01A0-FA66-4CC8-89B9-171C29F99356_1_201_a.jpeg)
+
+![alt text](CB0317C3-C733-4902-B36F-18B589DCDFFE_1_201_a.jpeg)

@@ -83,9 +83,9 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     weights = user_prefs.get(
         "weights",
         {
-            "genre": 0.30,
+            "genre": 0.15,
             "mood": 0.20,
-            "energy": 0.15,
+            "energy": 0.30,
             "tempo_bpm": 0.10,
             "valence": 0.10,
             "danceability": 0.10,
